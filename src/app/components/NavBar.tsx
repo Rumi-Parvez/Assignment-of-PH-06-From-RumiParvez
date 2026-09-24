@@ -1,9 +1,19 @@
+"use client"
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import logo from "@/assets/logo.png"
 
 const NavBar = () => {
+    
+    const [isActive ,setIsActive] = useState(false);
+
+    const HandleClickActive = ()=>
+        setIsActive(!isActive)
+
+
     return (
        <>
        
@@ -20,14 +30,14 @@ const NavBar = () => {
 
                 <div >
                     <ul className="flex justify-between items-center gap-5 text-sm text-gray-300">
-                        <li><Link href="/workouts">Workouts</Link></li>
-                        <li><Link href="/myPlan">My Plan</Link></li>
+                        <li onClick={HandleClickActive}><Link href="/" className={isActive ? "" : "text-lime-400 bg-lime-500/30 py-2 px-5 rounded-full font-semibold"}>Workouts</Link></li>
+                        <li onClick={HandleClickActive}><Link href="/myPlan" className={isActive ? "text-lime-400 bg-lime-500/30 py-2 px-5 rounded-full font-semibold" : ""} >My Plan</Link></li>
                     </ul>
                 </div>
 
                 <div className="flex justify-between items-center gap-5 text-sm text-gray-300">
-                    <Link href="" ><button className="cursor-pointer">Plan</button></Link>
-                    <Link href="" ><button className="cursor-pointer">Saved</button></Link>
+                    <Link href="/myPlan" ><button className="cursor-pointer">Plan</button></Link>
+                    <Link href="/myPlan" ><button className="cursor-pointer">Saved</button></Link>
                 </div>
             </div>
        </div>

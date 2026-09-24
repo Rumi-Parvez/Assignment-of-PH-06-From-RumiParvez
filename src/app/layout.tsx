@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import NavBar from "./components/NavBar";
 import { Oswald } from "next/font/google";
 import { Inter } from "next/font/google";
+import Footer from "./components/Footer";
 const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -48,6 +49,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
 
 
+        <Footer></Footer>
+        
         <ToastContainer />
       </body>
     </html>
