@@ -16,7 +16,7 @@ const DetailsPage = async ({ params }: ParamiterProps) => {
   const data: IWorkoutData = await res.json();
   return (
     <div className="flex justify-center items-center">
-        <div className=" flex  mt-10  gap-20  ">
+        <div className=" flex  my-10  gap-20  ">
       <div className="">
         <Image
           src={data.image}

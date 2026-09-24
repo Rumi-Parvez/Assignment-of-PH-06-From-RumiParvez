@@ -44,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
          <NavBar></NavBar>
         
         
-        <main className="py-4 container mx-auto">
+        <main className="py-4 px-10 container mx-auto">
           {children}
         </main>
 

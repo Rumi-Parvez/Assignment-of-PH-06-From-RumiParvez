@@ -6,7 +6,7 @@ import  footerLogo from "@/assets/SVG.png"
 const Footer = () => {
     return (
         <div className="bg-black border-t-2 border-gray-900">
-            <div className="container mx-auto py-7">
+            <div className="container mx-auto py-7 px-10 ">
             <div className="flex justify-between items-center ">
                 <div >
                     <Link href="/" className="flex justify-between items-center gap-2">
