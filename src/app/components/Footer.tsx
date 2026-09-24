@@ -11,7 +11,7 @@ const Footer = () => {
                 <div >
                     <Link href="/" className="flex justify-between items-center gap-2">
                     <Image src={footerLogo} alt="Footer FITLOG Logo" width={20} height={20}></Image>
-                    <h1 className="font-bold text-sm ">FITLOG</h1>
+                    <h1 className="font-bold text-sm  font-oswald">FITLOG</h1>
                     </Link>
                 </div>
 

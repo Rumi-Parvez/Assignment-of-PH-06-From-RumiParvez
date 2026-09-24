@@ -17,7 +17,7 @@ const NavBar = () => {
     return (
        <>
        
-       <div className="sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b-2 border-gray-900">
+       <div className="sticky top-0 z-50  bg-black/80 border-b-2 border-gray-900">
         <div className=" py-5 container mx-auto">
             <div className="flex  justify-between items-center">
                 
@@ -25,7 +25,7 @@ const NavBar = () => {
                     <Image src={logo} width={30} height={30} alt="FITOG Logo">
 
                     </Image>
-                    <h1 className="font-bold text-xl  ">FITLOG</h1></Link>
+                    <h1 className="font-bold text-xl   font-oswald">FITLOG</h1></Link>
               
 
                 <div >

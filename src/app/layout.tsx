@@ -8,7 +8,7 @@ import { Inter } from "next/font/google";
 import Footer from "./components/Footer";
 const oswald = Oswald({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-oswald",
 });
 
 const inter = Inter({
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="dark"
-      className={`${geistSans.variable} ${geistMono.variable} ${oswald.className} ${inter.className} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${inter.className} h-full antialiased`}
     >
       
       <body className="min-h-full flex flex-col">
