@@ -2,7 +2,9 @@ import { getWorkoutData } from "../api/lib";
 import LibraryCard from "./libraryCard";
 
 const LibraryPage = async () => {
-const LibraryData = await getWorkoutData();    return (
+const LibraryData = await getWorkoutData();   
+
+return (
         <>
         <div>
             <div className="pt-20 mb-10 space-y-2">

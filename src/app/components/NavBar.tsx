@@ -1,18 +1,14 @@
 "use client"
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import logo from "@/assets/logo.png"
 
 const NavBar = () => {
     
-    const [isActive ,setIsActive] = useState(false);
-
-    const HandleClickActive = ()=>
-        setIsActive(!isActive)
-
+ const pathname = usePathname();
 
     return (
        <>
@@ -30,8 +26,8 @@ const NavBar = () => {
 
                 <div >
                     <ul className="flex justify-between items-center gap-5 text-sm text-gray-300">
-                        <li onClick={HandleClickActive}><Link href="/" className={isActive ? "" : "text-lime-400 bg-lime-500/30 py-2 px-5 rounded-full font-semibold"}>Workouts</Link></li>
-                        <li onClick={HandleClickActive}><Link href="/myPlan" className={isActive ? "text-lime-400 bg-lime-500/30 py-2 px-5 rounded-full font-semibold" : ""} >My Plan</Link></li>
+                        <li  ><Link href="/" className={ pathname === "/" ?  "text-lime-400 bg-lime-500/30 py-2 px-5 rounded-full font-semibold":"" }>Workouts</Link></li>
+                        <li ><Link href="/myPlan" className={pathname === "/myPlan" ? "text-lime-400 bg-lime-500/30 py-2 px-5 rounded-full font-semibold" : ""} >My Plan</Link></li>
                     </ul>
                 </div>
 

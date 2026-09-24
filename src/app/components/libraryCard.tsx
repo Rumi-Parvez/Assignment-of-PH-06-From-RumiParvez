@@ -10,7 +10,7 @@ const LibraryCard = ({ workout }: { workout: IWorkoutData }) => {
   return (
     <>
       <div>
-        <Link href="">
+        <Link href={`/exercise/${workout.id}`}>
           <div className="m-auto border-2 border-gray-400 bg-gray-700/20 rounded-3xl h-140">
             <Image
               src={workout.image}
@@ -21,7 +21,10 @@ const LibraryCard = ({ workout }: { workout: IWorkoutData }) => {
             <div className="px-8 mt-10 ">
                 <div className="flex items-center gap-5 mb-4">
               <span className="bg-lime-400 text-black text-sm font-semibold px-4 py-0.5 rounded-full ">{workout.muscleGroups[0]}</span>
-              <span className="bg-lime-400 text-black text-sm font-semibold px-4 py-0.5 rounded-full ">{workout.muscleGroups[1]}</span>
+              
+              {
+                workout.muscleGroups.length > 1 ? <span className="bg-lime-400 text-black text-sm font-semibold px-4 py-0.5 rounded-full ">{workout.muscleGroups[1]}</span> : ""
+              }
             </div>
             <h1 className="font-oswald text-3xl mb-1">{workout.name}</h1>
             <p className="text-sm font-light text-gray-400 ">{workout.equipment}</p>

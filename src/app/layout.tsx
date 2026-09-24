@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       
       <body className="min-h-full flex flex-col">
         
-       <div className="py-4 container mx-auto">
+       
          <NavBar></NavBar>
         
         
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
 
         <Footer></Footer>
-       </div>
+      
         
         <ToastContainer />
       </body>
