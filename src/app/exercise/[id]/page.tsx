@@ -28,7 +28,7 @@ const DetailsPage = async ({ params }: ParamiterProps) => {
       <div className="space-y-6">
         <h1 className="font-oswald font-bold text-4xl">{data.name}</h1>
         <p className="text-sm text-gray-400 font-light">{data.description}</p>
-        <div className="flex items-center gap-5 mb-4">
+        <div className="flex items-center gap-5 mb-8">
           <span className="bg-lime-400 text-black text-sm font-semibold px-4 py-0.5 rounded-full ">
             {data.muscleGroups[0]}
           </span>
