@@ -8,7 +8,7 @@ const LibraryData = await getWorkoutData();
 return (
         <>
         <div id="library">
-            <div className="pt-20 mb-10 space-y-2">
+            <div className="pt-10 mb-10 space-y-2">
                 <h1 className="font-oswald text-3xl font-semibold">THE LIBRARY</h1>
                 <p className="text-sm text-gray-300 font-light">Twelve lifts covering every major muscle group.</p>
             </div>

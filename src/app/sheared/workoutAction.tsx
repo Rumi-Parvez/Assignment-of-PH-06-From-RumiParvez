@@ -50,6 +50,7 @@ const WorkoutAction = ({data}:{data:IWorkoutData}) => {
   const handleClickSaved = () => {
     if (savedData.find((item) => item.id === data.id)) {
       toast.warning("Workout already saved.");
+
     }
     setSavedData([...savedData , data])
     setSaveCount(saveCount+1);
