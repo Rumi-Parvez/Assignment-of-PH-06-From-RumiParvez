@@ -23,9 +23,7 @@ const DetailsPage = async ({ params }: ParamiterProps) => {
     return (
        <div className="min-h-[70vh] flex items-center justify-center px-5">
       <div className="text-center max-w-xl">
-        <p className="text-lime-400 font-semibold tracking-widest text-sm mb-4">
-          FITLOG 404
-        </p>
+        
 
         <div className="flex justify-center items-center">
           <FaFrownOpen className="text-9xl flex justify-center items-center text-lime-400"/>
