@@ -15,6 +15,8 @@ interface FitLogContextType {
   setSaveCount: Dispatch<SetStateAction<number>>; 
   isActive : string
   setIsActive : Dispatch<SetStateAction<string>>
+  sortBy : string
+  setSortBy : Dispatch<SetStateAction<string>>
 }
 
 export const IsAddedList = createContext<FitLogContextType | undefined>(undefined);
@@ -25,6 +27,7 @@ const AddListBtnContext = ({ children }: { children: ReactNode }) => {
   const [planCount , setPlanCount] = useState<number>(0)
   const [saveCount , setSaveCount] = useState<number>(0)
   const [isActive, setIsActive] = useState<string>("TPlane")
+  const [sortBy, setSortBy] = useState("duration");
   
 
   return (
@@ -37,6 +40,7 @@ const AddListBtnContext = ({ children }: { children: ReactNode }) => {
         setSavedData,
         planCount , setPlanCount,
         saveCount , setSaveCount,
+        sortBy, setSortBy
 
       }}
     >

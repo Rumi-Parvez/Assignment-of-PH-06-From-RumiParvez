@@ -2,7 +2,8 @@ import { getWorkoutData } from "../api/lib";
 import LibraryCard from "./libraryCard";
 
 const LibraryPage = async () => {
-const LibraryData = await getWorkoutData();   
+const LibraryData = await getWorkoutData();  
+
 
 return (
         <>
