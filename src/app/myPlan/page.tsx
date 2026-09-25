@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 
 import MyPlanDataDaseboard from "../components/myPlanDataDaseboard";
 import Saved from "../components/saved";
@@ -8,6 +8,7 @@ import SavedPlanDaseboard from "../components/savedPlanDaseboard";
 import Sort from "../components/sort";
 import TodaysPlan from "../components/TodaysPlan";
 import { useAddlist } from "../hook/Isaddedlist";
+import DataLoading from "../loading/dataLoading";
 import { IWorkoutData } from "../types/IData";
 
 const MyPlanPage = () => {
@@ -92,11 +93,13 @@ const sortWorkouts = (
       </div>
 
 
-     {isActive === "TPlane" ? (
+     <Suspense fallback={<> <DataLoading></DataLoading></>}>
+      {isActive === "TPlane" ? (
         <TodaysPlan sortedTodaysPlan={sortedTodaysPlan} />
       ) : (
         <Saved sortedSavedData={sortedSavedData} />
       )}
+     </Suspense>
 
 
       

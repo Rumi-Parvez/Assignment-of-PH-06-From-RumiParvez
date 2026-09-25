@@ -46,19 +46,19 @@ const Saved = ({
               return (
                 <div
                   key={itme.id}
-                  className="flex justify-between items-center mt-5 bg-gray-700/20 py-5 px-8 rounded-2xl border border-gray-700"
+                  className="flex flex-col md:flex-row justify-between items-start md:items-center mt-5 bg-gray-700/20 py-5 px-4 md:px-6 lg:px-8 rounded-2xl border border-gray-700 gap-5"
                 >
-                  <div className="flex gap-8">
+                  <div className="flex flex-col sm:flex-row gap-5 md:gap-8 w-full">
                     <Image
                       src={itme.image}
                       width={200}
                       height={100}
                       alt={itme.name}
-                      className="w-50 h-30 object-cover object-[center_25%] rounded-2xl"
+                      className="w-full sm:w-50 h-50 sm:h-30 object-cover object-[center_20%] rounded-2xl"
                     />
 
                     <div className="space-y-3 mt-2">
-                      <h1 className="font-oswald font-bold text-3xl">
+                      <h1 className="font-oswald font-bold text-2xl md:text-3xl">
                         {itme.name}
                       </h1>
 
@@ -66,7 +66,7 @@ const Saved = ({
                         {itme.equipment}
                       </p>
 
-                      <div className="flex items-center gap-8 mb-5">
+                      <div className="flex flex-wrap items-center gap-4 md:gap-8 mb-5">
                         <div className="flex justify-between items-center gap-1 text-sm text-gray-400">
                           <IoMdTime className="text-lime-400 text-sm" />
                           {itme.duration}
@@ -85,9 +85,9 @@ const Saved = ({
                     </div>
                   </div>
 
-                  <div className="flex gap-5 items-center">
+                  <div className="flex pr-31 md:pr-0 gap-4 md:gap-5 items-center self-end md:self-auto">
                     <Link href={`/exercise/${itme.id}`}>
-                      <button className="btn border border-gray-700 py-2 px-7 font-semibold rounded-full flex items-center gap-2 cursor-pointer">
+                      <button className="btn border border-gray-700 py-2 px-5 md:px-5 md:py-2 font-semibold rounded-full flex items-center justify-center cursor-pointer whitespace-nowrap ">
                         View Details
                       </button>
                     </Link>
@@ -103,7 +103,7 @@ const Saved = ({
           </div>
         ) : (
           <div>
-            <div className="my-5 h-90 flex flex-col justify-center items-center rounded-xl border border-gray-700 bg-gray-700/10 space-y-1">
+            <div className="my-5 h-90 flex flex-col justify-center items-center text-center px-4 rounded-xl border border-gray-700 bg-gray-700/10 space-y-1">
               <h1 className="text-2xl font-oswald font-bold">
                 NOTHING HERE YET
               </h1>
@@ -129,3 +129,4 @@ const Saved = ({
 };
 
 export default Saved;
+
