@@ -1,7 +1,18 @@
+'use client'
+
+import { useState } from "react";
 import Link from "next/link";
 
-
 const  MyPlanPage = () => {
+    
+    const [isActive , setIsActive] = useState("TPlane")
+
+    const handleClickActive = (type : string)=>{
+        setIsActive(type)
+    }
+
+
+
     return (
         <div className="my-10">
             <div >
@@ -27,9 +38,9 @@ const  MyPlanPage = () => {
             </div>
 
             <div>
-                <div className="flex items-center  gap-10  py-2 mt-5 text-sm text-gray-600 bg-gray-700/20 w-70 justify-center rounded-xl  border border-gray-700 ">
-                    <button >{`Today’s Plan`}</button>
-                    <button className="bg-gray-600/30 px-10 py-2 text-gray-400 rounded-[5px]  ">Saved</button>
+                <div className="flex items-center  gap-10  py-2 mt-5 text-sm text-gray-600 bg-gray-700/20 w-80 justify-center rounded-xl  border border-gray-700  ">
+                    <button onClick={()=> handleClickActive('TPlane')} className={isActive === "TPlane" ? "bg-gray-600/30 px-10 py-2 text-gray-400 rounded-[5px]   cursor-pointer" : "cursor-pointer"} >{`Today’s Plan`}</button>
+                    <button onClick={()=> handleClickActive('saved')} className={isActive === "saved" ? "bg-gray-600/30 px-10 py-2 text-gray-400 rounded-[5px]   cursor-pointer" : "cursor-pointer"}>Saved</button>
                 </div>
             </div>
 

@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 import { Oswald } from "next/font/google";
 import { Inter } from "next/font/google";
 import Footer from "./components/Footer";
+import AddListBtnContext from "./context/addlistbtncontext";
+
 const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-oswald",
@@ -40,14 +42,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       
       <body className="min-h-full flex flex-col">
         
-       
+       <AddListBtnContext>
          <NavBar></NavBar>
         
         
         <main className="py-4 px-10 container mx-auto">
+          
           {children}
+          
+          
         </main>
 
+        </AddListBtnContext>
 
 
         <Footer></Footer>
