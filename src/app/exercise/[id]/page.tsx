@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FaFrownOpen } from "react-icons/fa";
+import { MdHome } from "react-icons/md";
 
 import WorkoutAction from "@/app/sheared/workoutAction";
 import { IWorkoutData } from "@/app/types/IData";
@@ -18,17 +21,39 @@ const DetailsPage = async ({ params }: ParamiterProps) => {
 
   if (!res.ok) {
     return (
-      <div className="flex justify-center items-center min-h-100">
-        <div className="text-center space-y-3">
-          <h1 className="text-3xl font-bold">
-            Workout Not Found
-          </h1>
+       <div className="min-h-[70vh] flex items-center justify-center px-5">
+      <div className="text-center max-w-xl">
+        <p className="text-lime-400 font-semibold tracking-widest text-sm mb-4">
+          FITLOG 404
+        </p>
 
-          <p className="text-gray-400">
-            No workout found with ID: {id}
-          </p>
+        <div className="flex justify-center items-center">
+          <FaFrownOpen className="text-9xl flex justify-center items-center text-lime-400"/>
+        </div>
+
+
+        <h2 className="text-2xl md:text-3xl font-oswald font-bold mt-4">
+          WORKOUT NOT FOUND
+        </h2>
+
+        <p className="text-gray-400 font-light mt-3 max-w-md mx-auto">
+          {`The [ ${id} ] page or workout you are looking for does not exist. Let's
+          get you back to your training.`}
+        </p>
+
+        <div className="flex justify-center items-center gap-4 mt-8">
+          
+
+          <Link
+            href="/"
+            className="bg-lime-400 text-black px-6 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-lime-300 transition"
+          >
+            <MdHome className="text-xl" />
+            Home
+          </Link>
         </div>
       </div>
+    </div>
     );
   }
 
