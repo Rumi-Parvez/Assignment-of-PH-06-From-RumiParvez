@@ -86,7 +86,7 @@ const DetailsPage = async ({ params }: ParamiterProps) => {
             </p>
           </div>
             
-            <WorkoutAction></WorkoutAction>
+            <WorkoutAction data={data}></WorkoutAction>
           
         </div>
       </div>
