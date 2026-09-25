@@ -72,18 +72,12 @@ const DetailsPage = async ({ params }: ParamiterProps) => {
 
           <div className="space-y-3">
             <h1 className="text-2xl font-bold">INSTRUCTIONS</h1>
-            <p className="text-sm text-gray-300 font-light">
-              1. {data.instructions[0]}
-            </p>
-            <p className="text-sm text-gray-300 font-light">
-              2. {data.instructions[1]}
-            </p>
-            <p className="text-sm text-gray-300 font-light">
-              3. {data.instructions[2]}
-            </p>
-            <p className="text-sm text-gray-300 font-light">
-              4. {data.instructions[3]}
-            </p>
+            <ul className="text-sm text-gray-300 font-light space-y-3">
+              <li>1. {data.instructions[0]}</li>
+              <li>2. {data.instructions[1]}</li>
+              <li>3. {data.instructions[2]}</li>
+              <li>4. {data.instructions[3]}</li>
+            </ul>
           </div>
             
             <WorkoutAction data={data}></WorkoutAction>

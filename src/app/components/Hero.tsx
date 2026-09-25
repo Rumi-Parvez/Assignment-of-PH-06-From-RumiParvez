@@ -15,7 +15,7 @@ const HeroPage = () => {
               {`FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
               into today's plan, and watch the week's work add up.`}
             </p>
-            <button className="bg-lime-400 text-black font-semibold text-xs px-7 py-3 rounded-[3px] cursor-pointer"><Link href="/">BROWSE WORKOUTS</Link></button>
+            <button className="bg-lime-400 text-black font-semibold text-xs px-7 py-3 rounded-[3px] cursor-pointer"><Link href="#library">BROWSE WORKOUTS</Link></button>
           </div>
           <div className="w-[50%] p-20">
             <Image

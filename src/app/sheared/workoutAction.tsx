@@ -2,6 +2,7 @@
 
 import { FaRegBookmark } from "react-icons/fa";
 import { RiFolderAddLine } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 import { useAddlist } from "../hook/Isaddedlist";
 import { IWorkoutData } from "../types/IData";
@@ -14,17 +15,22 @@ const WorkoutAction = ({data}:{data:IWorkoutData}) => {
     savedData, setSavedData,
     saveCount,
     setSaveCount,
+
   } = useAddlist();
 
   const handleClicktodaysplan = () => {
-    setTodaysPlan([...todaysPlan , data])
+    setTodaysPlan([...todaysPlan , data] )
+ 
+    
     setPlanCount(planCount+1);
+    toast.success(`${data.name} Workout added to today's plan!`)
     
   };
 
   const handleClickSaved = () => {
     setSavedData([...savedData , data])
     setSaveCount(saveCount+1);
+    toast.success(`${data.name} Workout saved for later!`)
   };
 
   return (
