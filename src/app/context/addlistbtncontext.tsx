@@ -1,18 +1,18 @@
 'use client';
 
-import React, { ReactNode, useState, createContext, SetStateAction } from "react";
+import React, { ReactNode, useState, createContext, SetStateAction, Dispatch } from "react";
 
 import { IWorkoutData } from "../types/IData";
 
 interface FitLogContextType {
   todaysPlan: IWorkoutData[];
-  setTodaysPlan: React.Dispatch<React.SetStateAction<IWorkoutData[]>>;
+  setTodaysPlan: Dispatch<SetStateAction<IWorkoutData[]>>;
   savedData: IWorkoutData[];
-  setSavedData: React.Dispatch<React.SetStateAction<IWorkoutData[]>>;
+  setSavedData: Dispatch<SetStateAction<IWorkoutData[]>>;
   planCount : number
-  setPlanCount: React.Dispatch<SetStateAction<number>>; 
+  setPlanCount: Dispatch<SetStateAction<number>>; 
   saveCount : number
-  setSaveCount: React.Dispatch<SetStateAction<number>>; 
+  setSaveCount: Dispatch<SetStateAction<number>>; 
 }
 
 export const IsAddedList = createContext<FitLogContextType | undefined>(undefined);

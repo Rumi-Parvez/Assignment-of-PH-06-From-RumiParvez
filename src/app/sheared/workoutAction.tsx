@@ -2,6 +2,7 @@
 
 import { FaRegBookmark } from "react-icons/fa";
 import { RiFolderAddLine } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 import { useAddlist } from "../hook/Isaddedlist";
 
@@ -14,11 +15,12 @@ const WorkoutAction = () => {
   } = useAddlist();
 
   const handleClicktodaysplan = () => {
-    setPlanCount(planCount + 1);
+    setPlanCount(planCount+1);
+    
   };
 
   const handleClickSaved = () => {
-    setSaveCount(saveCount + 1);
+    setSaveCount(saveCount+1);
   };
 
   return (

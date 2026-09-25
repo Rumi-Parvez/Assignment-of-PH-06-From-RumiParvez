@@ -43,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         
        <AddListBtnContext>
+
          <NavBar></NavBar>
         
         
@@ -53,12 +54,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           
         </main>
 
-        </AddListBtnContext>
+        
 
 
         <Footer></Footer>
       
-        
+        </AddListBtnContext>
         <ToastContainer />
       </body>
     </html>
