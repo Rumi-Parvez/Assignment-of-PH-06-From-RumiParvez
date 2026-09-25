@@ -13,7 +13,7 @@ const DetailsPage = async ({ params }: ParamiterProps) => {
   const { id } = await params;
 
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${id}`
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/${id}`
   );
 
   if (!res.ok) {
