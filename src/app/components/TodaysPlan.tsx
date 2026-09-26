@@ -42,21 +42,14 @@ const TodaysPlan = ({ sortedTodaysPlan }: TodaysPlanProps) => {
 
   const handleMarkDone = (workout: IWorkoutData) => {
     setTodaysPlan((items) =>
-      items.map((item) =>
-        item.id === workout.id
-          ? {
-              ...item,
-              isDone: !item.isDone,
-            }
-          : item
+      items.filter(
+        (selected) =>
+          selected.id !== workout.id
       )
     );
+    setPlanCount(planCount - 1);
 
-    toast.success(
-      workout.isDone
-        ? "Workout marked as undone."
-        : "Workout marked as done!"
-    );
+    toast.success(`The ${workout.name} Workout marked as done!`);
   };
 
   return (
@@ -107,13 +100,13 @@ const TodaysPlan = ({ sortedTodaysPlan }: TodaysPlanProps) => {
 
               <div className="flex justify-center gap-3 md:gap-5 items-center w-full md:w-auto">
                 <Link href={`/exercise/${itme.id}`}>
-                  <button className="btn border border-gray-700 py-2 px-5 md:px-5 md:py-2 font-semibold rounded-full flex items-center justify-center cursor-pointer whitespace-nowrap ">
+                  <button className="btn border text-xs border-gray-700 py-1 px-3 md:px-5 md:py-2 font-semibold rounded-full flex items-center justify-center cursor-pointer whitespace-nowrap ">
                     View Details
                   </button>
                 </Link>
 
                 <button
-                  className={`btn px-5 md:px-7 font-bold rounded-full flex items-center justify-center gap-2 whitespace-nowrap shrink-0 ${
+                  className={`btn tex-xs px-3 md:px-7 font-bold rounded-full flex items-center justify-center gap-2 whitespace-nowrap shrink-0 ${
                     itme.isDone
                       ? "bg-gray-600 text-white"
                       : "bg-lime-400 text-black"

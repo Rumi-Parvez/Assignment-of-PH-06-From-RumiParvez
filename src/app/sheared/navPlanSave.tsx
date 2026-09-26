@@ -16,15 +16,15 @@ const NavPlanSave = () => {
   };
 
   return (
-    <div className="flex justify-between items-center gap-5 text-sm text-gray-300">
-      
+    <div className="flex justify-between items-center gap-3 md:gap-5 text-xs md:text-sm text-gray-300 shrink-0">
       <Link href="/myPlan">
-        <button className="cursor-pointer flex justify-between items-center gap-2">
+        <button
+          className="cursor-pointer flex justify-between items-center gap-1.5 md:gap-2 whitespace-nowrap"
+          onClick={() => handleClickPlanActive("TPlane")}
+        >
           Plan
-          <h1
-            className="bg-lime-400 px-2 py-0.5 rounded-full text-black"
-            onClick={() => handleClickPlanActive("TPlane")}
-          >
+
+          <h1 className="bg-lime-400 px-1.5 md:px-2 py-0.5 rounded-full text-black min-w-5 md:min-w-6 text-center">
             {planCount}
           </h1>
         </button>
@@ -32,16 +32,16 @@ const NavPlanSave = () => {
 
       <Link href="/myPlan">
         <button
-          className="cursor-pointer flex justify-between items-center gap-2"
+          className="cursor-pointer flex justify-between items-center gap-1.5 md:gap-2 whitespace-nowrap"
           onClick={() => handleClickSaveActive("saved")}
         >
           Saved
-          <h1 className="border border-gray-700 px-2 py-0.5 rounded-full">
+
+          <h1 className="border border-gray-700 px-1.5 md:px-2 py-0.5 rounded-full min-w-5 md:min-w-6 text-center">
             {saveCount}
           </h1>
         </button>
       </Link>
-
     </div>
   );
 };
