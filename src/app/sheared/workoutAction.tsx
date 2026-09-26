@@ -31,12 +31,12 @@ const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
 
   const handleClicktodaysplan = () => {
     if (todaysPlan.find((item) => item.id === data.id)) {
-      toast.warning(`${data.name} Workout already added to today's plan.`);
+      toast.error(`${data.name} Workout already added to today's plan.`);
       return;
     }
 
     if (todaysPlan.length >= 5) {
-      toast.warning("You can add a maximum of 5 workouts for today.");
+      toast.error("You can add a maximum of 5 workouts for today.");
       return;
     }
 
@@ -49,7 +49,7 @@ const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
 
   const handleClickSaved = () => {
   if (savedData.find((item) => item.id === data.id)) {
-    toast.warning(`${data.name} Workout already saved.`);
+    toast.error(`${data.name} Workout already saved.`);
     return;
   }
 
