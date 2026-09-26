@@ -17,7 +17,7 @@ const NavPlanSave = () => {
 
   return (
     <div className="flex justify-between items-center gap-3 md:gap-5 text-xs md:text-sm text-gray-300 shrink-0">
-      <Link href="/myPlan">
+      <Link href="/my-plan">
         <button
           className="cursor-pointer flex justify-between items-center gap-1.5 md:gap-2 whitespace-nowrap"
           onClick={() => handleClickPlanActive("TPlane")}
@@ -30,7 +30,7 @@ const NavPlanSave = () => {
         </button>
       </Link>
 
-      <Link href="/myPlan">
+      <Link href="/my-plan">
         <button
           className="cursor-pointer flex justify-between items-center gap-1.5 md:gap-2 whitespace-nowrap"
           onClick={() => handleClickSaveActive("saved")}

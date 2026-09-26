@@ -55,9 +55,9 @@ const NavBar = () => {
 
                 <li>
                   <Link
-                    href="/myPlan"
+                    href="/my-plan"
                     className={
-                      pathname === "/myPlan"
+                      pathname === "/my-plan"
                         ? "text-lime-400 bg-lime-500/30 py-2 px-2 sm:px-3 md:px-5 rounded-full font-semibold whitespace-nowrap"
                         : "py-2 px-2 sm:px-3 md:px-0 whitespace-nowrap"
                     }
@@ -102,10 +102,10 @@ const NavBar = () => {
 
                 <li>
                   <Link
-                    href="/myPlan"
+                    href="/my-plan"
                     onClick={() => setIsMenuOpen(false)}
                     className={
-                      pathname === "/myPlan"
+                      pathname === "/my-plan"
                         ? "block text-lime-400 bg-lime-500/30 py-2 px-6 rounded-full font-semibold"
                         : "block py-2 px-6"
                     }
