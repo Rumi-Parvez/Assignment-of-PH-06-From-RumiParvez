@@ -11,7 +11,7 @@ const LibraryCard = ({ workout }: { workout: IWorkoutData }) => {
     <>
       <div>
         <Link href={`/exercise/${workout.id}`}>
-          <div className="m-auto border border-gray-400 bg-gray-700/20 rounded-3xl h-auto lg:h-140 overflow-hidden">
+          <div className="m-auto border hover:border-lime-400 hover:border-3 border-gray-400 bg-gray-700/20 rounded-3xl h-auto lg:h-140 overflow-hidden">
             <Image
               src={workout.image}
               width={300}
