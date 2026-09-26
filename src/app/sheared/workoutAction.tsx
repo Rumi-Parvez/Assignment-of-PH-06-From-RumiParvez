@@ -31,7 +31,7 @@ const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
 
   const handleClicktodaysplan = () => {
     if (todaysPlan.find((item) => item.id === data.id)) {
-      toast.warning("Workout already added to today's plan.");
+      toast.warning(`${data.name} Workout already added to today's plan.`);
       return;
     }
 
@@ -48,27 +48,25 @@ const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
   };
 
   const handleClickSaved = () => {
-    if (savedData.find((item) => item.id === data.id)) {
-      toast.warning("Workout already saved.");
-    }
+  if (savedData.find((item) => item.id === data.id)) {
+    toast.warning(`${data.name} Workout already saved.`);
+    return;
+  }
 
-    setSavedData([...savedData, data]);
-
-    setSaveCount(saveCount + 1);
-
-    toast.success(`${data.name} Workout saved for later!`);
-  };
+  setSavedData([...savedData, data]);
+  setSaveCount(saveCount + 1);
+  toast.success(`${data.name} Workout saved for later!`);
+};
 
   return (
     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
       <button
         onClick={handleClicktodaysplan}
-        disabled={alreadyAdded || planLimitReached}
-        className={`flex justify-center items-center gap-3 px-5 sm:px-7 py-2 rounded-xl text-xs font-bold w-full sm:w-auto ${
-          alreadyAdded
-            ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-            : "bg-lime-400 text-black cursor-pointer hover:bg-lime-300"
-        }`}
+        
+        className={`flex justify-center items-center gap-3 px-5 sm:px-7 py-2 rounded-xl text-xs font-bold w-full sm:w-auto ${alreadyAdded || planLimitReached
+  ? "bg-gray-600 text-gray-400 cursor-pointer"
+  : "bg-lime-400 text-black cursor-pointer hover:bg-lime-300"
+}`}
       >
         <RiFolderAddLine className="text-xl" />
 
@@ -81,12 +79,12 @@ const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
 
       <button
         onClick={handleClickSaved}
-        disabled={alreadySaved}
+        
         className={`flex justify-center items-center text-xs p-3 sm:px-5 sm:py-2 rounded-xl gap-3 w-full sm:w-auto ${
-          alreadySaved
-            ? "btn bg-gray-600 text-gray-400 cursor-not-allowed"
-            : "border border-gray-700 cursor-pointer"
-        }`}
+    alreadySaved
+      ? "bg-gray-600 text-gray-400 cursor-pointer"
+      : "border border-gray-700 cursor-pointer"
+  }`}
       >
         <FaRegBookmark />
 
