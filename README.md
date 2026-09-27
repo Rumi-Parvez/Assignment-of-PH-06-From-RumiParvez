@@ -17,11 +17,10 @@ FitLog uses REST API data for the workout collection.
 
 **All Workout Data:**
 ```text
-https://api.abcz.workers.dev/api/fitlog
-```
+https://api.api-store.workers.dev/api/fitlog```
 **Single Workout Data:**
 ```text
-https://api.abcz.workers.dev/api/fitlog/:id
+https://api.api-store.workers.dev/api/fitlog:id
 ```
 
 ### Example Workout Data
