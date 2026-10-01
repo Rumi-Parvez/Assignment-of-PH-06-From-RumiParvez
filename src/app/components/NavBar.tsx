@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HiMenu, HiX } from "react-icons/hi";
 
+import { useSession } from "../../lib/auth-client"
 import NavPlanSave from "../sheared/navPlanSave";
 import logo from "@/assets/logo.png";
 
@@ -13,6 +14,10 @@ const NavBar = () => {
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+const { data: session } = useSession();
+
+
 
   return (
     <>
@@ -37,7 +42,8 @@ const NavBar = () => {
               </h1>
             </Link>
 
-            <div className="hidden md:block shrink-0">
+            <div className="flex justify-between items-center gap-20">
+              <div className="hidden md:block shrink-0">
               <ul className="flex justify-center items-center gap-1 sm:gap-2 md:gap-5 text-[11px] sm:text-xs md:text-sm text-gray-300">
 
                 <li>
@@ -53,7 +59,8 @@ const NavBar = () => {
                   </Link>
                 </li>
 
-                <li>
+                {
+                  session?.user && <><li>
                   <Link
                     href="/my-plan"
                     className={
@@ -64,13 +71,26 @@ const NavBar = () => {
                   >
                     My Plan
                   </Link>
-                </li>
+                </li></>
+                }
 
               </ul>
+                
+            </div>
+            {
+              session?.user && <><div className="flex items-center gap-3 md:gap-5">
+                  <NavPlanSave />
+            </div></>
+            }
             </div>
 
-            <div className="flex items-center gap-3 md:gap-5">
-              <NavPlanSave />
+            
+
+            <div className="flex flex-row items-center gap-3 md:gap-5">
+              <div className="flex gap-3 items-center">
+              <Link href='/log-in'><button className="cursor-pointer text-sm font-bold border border-gray-700 bg-gray-900 rounded-full py-2 px-6">Login</button></Link>
+              <Link href='/sign-up'><button className="cursor-pointer bg-lime-300 text-lime-800 text-sm font-bold rounded-full py-2 px-7">Sign Up</button></Link>
+            </div>
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

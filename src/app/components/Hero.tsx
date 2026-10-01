@@ -20,8 +20,8 @@ const HeroPage = () => {
               into today's plan, and watch the week's work add up.`}
             </p>
 
-            <button className="bg-lime-400 text-black font-semibold text-xs px-7 py-3 rounded-[3px] cursor-pointer">
-              <Link href="#library">BROWSE WORKOUTS</Link>
+            <button className="bg-lime-400 text-black font-semibold text-sm px-7 py-3 rounded-[3px] cursor-pointer">
+              <Link href="/exercise">Get Start</Link>
             </button>
           </div>
 

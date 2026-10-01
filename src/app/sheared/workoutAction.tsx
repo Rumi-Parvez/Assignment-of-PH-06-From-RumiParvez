@@ -6,8 +6,11 @@ import { toast } from "react-toastify";
 
 import { useAddlist } from "../hook/Isaddedlist";
 import { IWorkoutData } from "../types/IData";
+import { useSession } from "@/lib/auth-client";
 
 const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
+  const { data: session } = useSession();
+
   const {
     todaysPlan,
     setTodaysPlan,
@@ -58,8 +61,17 @@ const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
   toast.success(`${data.name} Workout saved for later!`);
 };
 
+
+const handleclickbeforuser = ()=>{
+  toast.error('Please Login at frist for use this feature');
+}
+
   return (
-    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
+    <>
+    <div>
+      {
+        session?.user ? <>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
       <button
         onClick={handleClicktodaysplan}
         
@@ -93,6 +105,40 @@ const WorkoutAction = ({ data }: { data: IWorkoutData }) => {
           : "Save for later"}
       </button>
     </div>
+    
+    </> 
+    
+    : 
+    
+    <>
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
+      <button
+        onClick={handleclickbeforuser}
+        className={`flex justify-center items-center gap-3 px-5 sm:px-7 py-2 rounded-xl text-xs font-bold w-full sm:w-auto bg-lime-400 text-black cursor-pointer hover:bg-lime-300 `}
+      >
+        <RiFolderAddLine className="text-xl" />
+
+        {"Add to today's plan"}
+      </button>
+
+      <button
+        
+        onClick={handleclickbeforuser}
+        className={`flex justify-center items-center text-xs p-3 sm:px-5 sm:py-2 rounded-xl gap-3 w-full sm:w-auto border border-gray-700 cursor-pointer
+  `}
+      >
+        <FaRegBookmark />
+
+        { "Save for later"}
+      </button>
+    </div></>
+      }
+
+
+
+    
+    </div>
+    </>
   );
 };
 
