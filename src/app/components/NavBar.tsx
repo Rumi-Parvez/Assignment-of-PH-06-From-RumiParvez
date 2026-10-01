@@ -4,10 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {ArrowRightFromSquare} from '@gravity-ui/icons';
 import { HiMenu, HiX } from "react-icons/hi";
 
-import { useSession } from "../../lib/auth-client"
+import { signOut, useSession } from "../../lib/auth-client"
 import NavPlanSave from "../sheared/navPlanSave";
+import avatar from '@/assets/avatar.jpg'
 import logo from "@/assets/logo.png";
 
 const NavBar = () => {
@@ -87,10 +89,28 @@ const { data: session } = useSession();
             
 
             <div className="flex flex-row items-center gap-3 md:gap-5">
-              <div className="flex gap-3 items-center">
+
+
+              {
+                session?.user ? <>
+                <div className="flex gap-3 items-center">
+                  <h1 className="text-sm">Hello! {session.user?.name}</h1>
+                    <Link href='/my-plan'><Image src={avatar} width={40} height={40} alt="Profile Image" className="rounded-full border-2 border-gray-300 hover:border-3 hover:border-lime-300"></Image></Link>
+                    <ArrowRightFromSquare className="text-gray-500 cursor-pointer hover:text-red-400" onClick={()=> signOut()}></ArrowRightFromSquare>
+                    
+                </div>
+                </> : 
+                
+                <>
+                <div className="flex gap-3 items-center">
+
               <Link href='/log-in'><button className="cursor-pointer text-sm font-bold border border-gray-700 bg-gray-900 rounded-full py-2 px-6">Login</button></Link>
               <Link href='/sign-up'><button className="cursor-pointer bg-lime-300 text-lime-800 text-sm font-bold rounded-full py-2 px-7">Sign Up</button></Link>
-            </div>
+
+              </div>
+                </>
+              }
+
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

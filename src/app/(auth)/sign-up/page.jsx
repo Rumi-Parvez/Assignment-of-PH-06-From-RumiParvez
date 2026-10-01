@@ -1,9 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import {Check} from "@gravity-ui/icons";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
-import { signUp } from "../../../lib/auth-client";
+import { signIn, signUp } from "../../../lib/auth-client";
 
 export default function SignUpPage() {
   const onSubmit = async (e) => {
@@ -22,9 +25,26 @@ export default function SignUpPage() {
     console.log('after mongodb data added ', resData , error);
   };
 
+  const handlecliclgoogleauth = async()=>{
+    const data = await signIn.social({
+      provider: 'google'
+    })
+
+
+    console.log("google auth config" , data);
+  }
+  const handlecliclgithubauth = async()=>{
+    const data = await signIn.social({
+      provider: 'github'
+    })
+
+
+    console.log("google auth config" , data);
+  }
+
   return (
-    <div className="flex justify-center items-center my-30">
-        <div>
+    <div className="flex justify-center items-center my-10">
+        <div className="w-110 pt-16 pb-8 rounded-3xl flex justify-center items-center border-2 border-lime-600">
             <Form className="flex w-96 flex-col gap-4" onSubmit={onSubmit}>
                 <h1 className="text-white flex justify-center items-center text-2xl mb-2 font-oswald font-bold">Please Sign Up!</h1>
             <TextField
@@ -83,16 +103,26 @@ export default function SignUpPage() {
         <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
         <FieldError />
       </TextField>
+        <div className="divider my-[-3] text-xs text-gray-400">OR</div>
 
-      <div className="flex gap-2">
-        <Button type="submit">
+      <div className="flex justify-center items-center">
+        <div className="flex gap-3  items-center ">
+        <FcGoogle onClick={handlecliclgoogleauth} className="text-3xl cursor-pointer" />
+        <FaGithub onClick={handlecliclgithubauth} className="text-3xl cursor-pointer" />
+
+
+      </div></div>
+
+      <div className="flex  items-center gap-2   mb-[-20]">
+        <Button type="submit" className='px-25 bg-lime-300 font-bold text-lime-800'>
           <Check />
-          Submit
+          Sign Up
         </Button>
-        <Button type="reset" variant="secondary">
+        <Button type="reset" variant="secondary" className='px-8 text-lime-600'>
           Reset
         </Button>
       </div>
+      <p className="flex justify-center gap-2 items-center text-gray-400 text-xs mt-3" >Already i have account <span className="text-blue-500 underline"><Link href='/log-in' >Login</Link></span></p>
     </Form>
         </div>
     </div>
